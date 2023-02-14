@@ -7,24 +7,148 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/Pool"
+        android:id="@+id/textPoolName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pool_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="textPoolName" />
 
     <TextView
-        android:id="@+id/blockShare"
+        android:id="@+id/textPoolLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/blockcount"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pool"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintTop_toBottomOf="@+id/textPoolName"
+        tools:text="textPoolLink"/>
+
+    <TextView
+        android:id="@+id/textBlockCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Block count:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPoolLink"
+        tools:text="textBlockCount"/>
+
+    <TextView
+        android:id="@+id/textBlockCountAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCount"
+        tools:text="textBlockCountAll" />
+
+    <TextView
+        android:id="@+id/textBlockCount24h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCountAll"
+        tools:text="textBlockCount24h" />
+
+    <TextView
+        android:id="@+id/textBlockCount1w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCount24h"
+        tools:text="textBlockCount1w" />
+
+    <TextView
+        android:id="@+id/textBlockShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Block Share:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCount1w"
+        tools:text="textBlockShare" />
+
+    <TextView
+        android:id="@+id/textBlockShareAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:text="All: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShare"
+        tools:text="textBlockShareAll" />
+
+    <TextView
+        android:id="@+id/textBlockShare24h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:text="24h: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShareAll"
+        tools:text="textBlockShare24h" />
+
+    <TextView
+        android:id="@+id/textBlockShare1w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:text="1w: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShare24h"
+        tools:text="textBlockShare1w" />
+
+    <TextView
+        android:id="@+id/textEstimatedHashrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShare1w"
+        tools:text="textEstimatedHashrate" />
+
+    <TextView
+        android:id="@+id/textAddresses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrate"
+        tools:text="textAddresses" />
+
+    <TextView
+        android:id="@+id/textAddressesFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAddresses"
+        tools:text="textAddressesFirst" />
+
+    <TextView
+        android:id="@+id/textAddressesSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAddressesFirst"
+        tools:text="textAddressesSecond" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
