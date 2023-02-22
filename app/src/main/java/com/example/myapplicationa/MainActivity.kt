@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
 import com.example.myapplicationa.databinding.ActivityMainBinding
 import com.example.myapplicationa.model.PoolWrapper
 import com.squareup.moshi.Moshi
@@ -17,6 +19,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    val viewModel by viewModels<MainActivityViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -24,30 +27,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://mempool.space/api/")
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .build()
-
-        val poolService: PoolService = retrofit.create(PoolService::class.java)
-
-        poolService.getPoolByName().enqueue(object : Callback<PoolWrapper> {
-
-            override fun onResponse(call: Call<PoolWrapper>, response: Response<PoolWrapper>) {
-                Log.i("MainActivity", response.toString())
-
-                val body = response.body()!!
-                val name = body.pool.name
-
-                binding.Pool.text = name
+        viewModel.screenState.observe(this) { state ->
+            when(state){
+                is MainScreenState.Error -> binding.textPoolName.text = state.throwable.localizedMessage
+                is MainScreenState.Loading -> "Loading..."
+                is MainScreenState.Success -> bindPoolWrapper(state.data)
             }
-
-            override fun onFailure(call: Call<PoolWrapper>, t: Throwable) {
-                Log.i("MainActivity", t.message ?: "Null message")
-
-                t.printStackTrace()
-            }
-        })
+        }
+    }
+    private fun bindPoolWrapper(poolWrapper: PoolWrapper) {
+        with(binding) {
+            textPoolName.text = poolWrapper.pool.name
+            textPoolLink.text = poolWrapper.pool.link
+            textBlockCount.text = getString(R.string.block_count)
+            textBlockCountAll.text = getString(R.string.all, poolWrapper.blockCount.all.toString())
+            textBlockCount24h.text = getString(R.string.h, poolWrapper.blockCount.h.toString())
+            textBlockCount1w.text = getString(R.string.w, poolWrapper.blockCount.w.toString())
+            textBlockShare.text = getString(R.string.block_share)
+            textBlockShareAll.text = getString(R.string.all, poolWrapper.blockShare.all.toString())
+            textBlockShare24h.text = getString(R.string.h, poolWrapper.blockShare.h.toString())
+            textBlockShare1w.text = getString(R.string.w, poolWrapper.blockShare.w.toString())
+            textEstimatedHashrate.text = getString(R.string.estimated_hashrate)
+            textEstimatedHashrateCount.text = poolWrapper.estimatedHashrate
+        }
     }
 }
