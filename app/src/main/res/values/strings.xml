@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">My ApplicationA</string>
-    <string name="pool_name">Pool</string>
-    <string name="blockcount">blockCount</string>
+    <string name="block_count">Block count:</string>
+    <string name="block_share">Block share:</string>
+    <string name="all">All: %1$s</string>
+    <string name="h">24h: %1$s</string>
+    <string name="w">1w: %1$s</string>
+    <string name="estimated_hashrate">Estimated hashrate:</string>
 </resources>

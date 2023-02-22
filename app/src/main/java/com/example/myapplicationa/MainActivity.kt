@@ -31,18 +31,24 @@ class MainActivity : AppCompatActivity() {
             when(state){
                 is MainScreenState.Error -> binding.textPoolName.text = state.throwable.localizedMessage
                 is MainScreenState.Loading -> "Loading..."
-                is MainScreenState.Success -> {
-                    binding.textPoolName.text = state.data.pool.name
-                    binding.textPoolLink.text = state.data.pool.link
-                    binding.textBlockCountAll.text = state.data.blockCount.all.toString()
-                    binding.textBlockCount24h.text = state.data.blockCount.h.toString()
-                    binding.textBlockCount1w.text = state.data.blockCount.w.toString()
-                    binding.textBlockShareAll.text = state.data.blockShare.all.toString()
-                    binding.textBlockShare24h.text = state.data.blockShare.h.toString()
-                    binding.textBlockShare1w.text = state.data.blockShare.w.toString()
-                    binding.textEstimatedHashrate.text = state.data.estimatedHashrate
-                }
+                is MainScreenState.Success -> bindPoolWrapper(state.data)
             }
+        }
+    }
+    private fun bindPoolWrapper(poolWrapper: PoolWrapper) {
+        with(binding) {
+            textPoolName.text = poolWrapper.pool.name
+            textPoolLink.text = poolWrapper.pool.link
+            textBlockCount.text = getString(R.string.block_count)
+            textBlockCountAll.text = getString(R.string.all, poolWrapper.blockCount.all.toString())
+            textBlockCount24h.text = getString(R.string.h, poolWrapper.blockCount.h.toString())
+            textBlockCount1w.text = getString(R.string.w, poolWrapper.blockCount.w.toString())
+            textBlockShare.text = getString(R.string.block_share)
+            textBlockShareAll.text = getString(R.string.all, poolWrapper.blockShare.all.toString())
+            textBlockShare24h.text = getString(R.string.h, poolWrapper.blockShare.h.toString())
+            textBlockShare1w.text = getString(R.string.w, poolWrapper.blockShare.w.toString())
+            textEstimatedHashrate.text = getString(R.string.estimated_hashrate)
+            textEstimatedHashrateCount.text = poolWrapper.estimatedHashrate
         }
     }
 }

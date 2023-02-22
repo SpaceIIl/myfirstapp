@@ -8,147 +8,182 @@
 
     <TextView
         android:id="@+id/textPoolName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="textPoolName" />
+        tools:text="AntPool" />
 
     <TextView
         android:id="@+id/textPoolLink"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPoolName"
-        tools:text="textPoolLink"/>
+        tools:text="https://www.antpool.com/"/>
 
     <TextView
         android:id="@+id/textBlockCount"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Block count:"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPoolLink"
-        tools:text="textBlockCount"/>
+        tools:text="Block count:" />
 
     <TextView
         android:id="@+id/textBlockCountAll"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCount"
-        tools:text="textBlockCountAll" />
+        tools:text="all: 70382" />
 
     <TextView
         android:id="@+id/textBlockCount24h"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCountAll"
-        tools:text="textBlockCount24h" />
+        tools:text="24h: 27" />
 
     <TextView
         android:id="@+id/textBlockCount1w"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCount24h"
-        tools:text="textBlockCount1w" />
+        tools:text="1w: 213" />
 
     <TextView
         android:id="@+id/textBlockShare"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Block Share:"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCount1w"
-        tools:text="textBlockShare" />
+        tools:text="Block share: " />
 
     <TextView
         android:id="@+id/textBlockShareAll"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:text="All: "
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShare"
-        tools:text="textBlockShareAll" />
+        tools:text="all: 0.090416987347208" />
 
     <TextView
         android:id="@+id/textBlockShare24h"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:text="24h: "
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShareAll"
-        tools:text="textBlockShare24h" />
+        tools:text="24h: 0.17532467532467533" />
 
     <TextView
         android:id="@+id/textBlockShare1w"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:text="1w: "
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShare24h"
-        tools:text="textBlockShare1w" />
+        tools:text="1w: 0.18733509234828497" />
 
     <TextView
         android:id="@+id/textEstimatedHashrate"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShare1w"
-        tools:text="textEstimatedHashrate" />
+        tools:text="Estimated hashrate:" />
+
+    <TextView
+        android:id="@+id/textEstimatedHashrateCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrate"
+        tools:text="52123681581709400000" />
 
     <TextView
         android:id="@+id/textAddresses"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrate"
-        tools:text="textAddresses" />
+        app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrateCount"
+        tools:text="Addresses: " />
 
     <TextView
         android:id="@+id/textAddressesFirst"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAddresses"
-        tools:text="textAddressesFirst" />
+        tools:text="1Sjj2cPC3rTWcSTEYDeu2f3BavLosog4T" />
 
     <TextView
         android:id="@+id/textAddressesSecond"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAddressesFirst"
-        tools:text="textAddressesSecond" />
+        tools:text="1jLVpwtNMfXWaHY4eiLDmGuBxokYLgv1X" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
