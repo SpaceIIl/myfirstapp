@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ViewModelAntpool: ViewModel() {
+class AntpoolViewModel: ViewModel() {
     private val _screenState = MutableLiveData<MainScreenState>()
     val screenState: LiveData<MainScreenState> = _screenState
 

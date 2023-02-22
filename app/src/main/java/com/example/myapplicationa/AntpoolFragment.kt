@@ -12,7 +12,7 @@ import com.example.myapplicationa.model.PoolWrapper
 class AntpoolFragment : Fragment() {
     private var _binding: FragmentAntpoolBinding? = null
     private val binding get() = _binding!!
-    val viewModel by viewModels<ViewModelAntpool>()
+    val viewModel by viewModels<AntpoolViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
