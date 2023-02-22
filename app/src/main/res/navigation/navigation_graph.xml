@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/FragmentAntpool">
+
+    <fragment
+        android:id="@+id/FragmentAntpool"
+        android:name="com.example.myapplicationa.AntpoolFragment"
+        android:label="FragmentAntpool"
+        tools:layout="@layout/fragment_antpool" />
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.myapplicationa.Fragment2"
+        android:label="Fragment2"
+        tools:layout="@layout/fragment2" />
+</navigation>
