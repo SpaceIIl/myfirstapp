@@ -10,21 +10,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AntpoolViewModel: ViewModel() {
-    private val _screenState = MutableLiveData<MainScreenState>()
-    val screenState: LiveData<MainScreenState> = _screenState
+    private val _screenState = MutableLiveData<PoolScreenState>()
+    val screenState: LiveData<PoolScreenState> = _screenState
 
     init {
-        _screenState.value = MainScreenState.Loading
+        _screenState.value = PoolScreenState.Loading
 
         getPoolByName().enqueue(object : Callback<PoolWrapper> {
 
             override fun onResponse(call: Call<PoolWrapper>, response: Response<PoolWrapper>) {
-                _screenState.value = MainScreenState.Success(response.body()!!)
+                _screenState.value = PoolScreenState.Success(response.body()!!)
             }
 
             override fun onFailure(call: Call<PoolWrapper>, t: Throwable) {
                 t.printStackTrace()
-                _screenState.value = MainScreenState.Error(t)
+                _screenState.value = PoolScreenState.Error(t)
             }
         })
     }

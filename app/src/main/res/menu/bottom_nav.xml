@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Test"/>
     <item
-        android:id="@+id/fragment2"
+        android:id="@+id/FragmentPools"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Test2"/>
 </menu>

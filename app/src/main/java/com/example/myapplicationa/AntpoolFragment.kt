@@ -32,12 +32,12 @@ class AntpoolFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             when(state){
-                is MainScreenState.Error -> {
+                is PoolScreenState.Error -> {
                     binding.progressPool.visibility = View.GONE
                     binding.textPoolName.text = state.throwable.localizedMessage
                 }
-                is MainScreenState.Loading -> binding.progressPool.visibility = View.VISIBLE
-                is MainScreenState.Success -> {
+                is PoolScreenState.Loading -> binding.progressPool.visibility = View.VISIBLE
+                is PoolScreenState.Success -> {
                     binding.progressPool.visibility = View.GONE
                     bindPoolWrapper(state.data)
                 }
