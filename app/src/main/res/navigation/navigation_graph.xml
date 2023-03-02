@@ -14,5 +14,18 @@
         android:id="@+id/FragmentPools"
         android:name="com.example.myapplicationa.PoolsFragment"
         android:label="Fragment2"
-        tools:layout="@layout/fragment_pools" />
+        tools:layout="@layout/fragment_pools" >
+        <action
+            android:id="@+id/action_FragmentPools_to_FragmentPoolDetail"
+            app:destination="@id/FragmentPoolDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentPoolDetail"
+        android:name="com.example.myapplicationa.pooldetail.PoolDetailFragment"
+        android:label="FragmentPoolDetail"
+        tools:layout="@layout/fragment_pool_detail" >
+        <argument
+            android:name="slug"
+            app:argType="string" />
+    </fragment>
 </navigation>

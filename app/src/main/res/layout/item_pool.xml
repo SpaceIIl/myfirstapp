@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textPoolName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_base_x2"
@@ -16,5 +16,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="AntPool" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textPoolLink"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/margin_base_x2"-->
+<!--        android:layout_marginTop="@dimen/margin_base"-->
+<!--        android:layout_marginEnd="@dimen/margin_base_x2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textPoolName"-->
+<!--        tools:text="Rank" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textRank"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/margin_base_x2"-->
+<!--        android:layout_marginTop="@dimen/margin_base"-->
+<!--        android:layout_marginEnd="@dimen/margin_base_x2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textPoolLink"-->
+<!--        tools:text="Rank" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textBlockCount"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/margin_base_x2"-->
+<!--        android:layout_marginTop="@dimen/margin_base"-->
+<!--        android:layout_marginEnd="@dimen/margin_base_x2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textRank"-->
+<!--        tools:text="Rank" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textPoolID"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/margin_base_x2"-->
+<!--        android:layout_marginTop="@dimen/margin_base"-->
+<!--        android:layout_marginEnd="@dimen/margin_base_x2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textBlockCount"-->
+<!--        tools:text="Rank" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,8 +21,8 @@ object MempoolDataSource {
         retrofit.create(PoolService::class.java)
     }
 
-    fun getPoolByName(): Call<PoolWrapper> {
-        return poolService.getPoolByName()
+    fun getPoolByName(slug: String): Call<PoolWrapper> {
+        return poolService.getPoolByName(slug)
     }
 
     fun getPools(): Call<Pools> {

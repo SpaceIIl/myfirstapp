@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ProgressBar
+        android:id="@+id/progressPool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </ProgressBar>
+
+    <TextView
+        android:id="@+id/textPoolName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="AntPool" />
+
+    <TextView
+        android:id="@+id/textPoolLink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPoolName"
+        tools:text="https://www.antpool.com/"/>
+
+    <TextView
+        android:id="@+id/textBlockCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPoolLink"
+        tools:text="Block count:" />
+
+    <TextView
+        android:id="@+id/textBlockCountAll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCount"
+        tools:text="all: 70382" />
+
+    <TextView
+        android:id="@+id/textBlockCount24h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCountAll"
+        tools:text="24h: 27" />
+
+    <TextView
+        android:id="@+id/textBlockCount1w"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCount24h"
+        tools:text="1w: 213" />
+
+    <TextView
+        android:id="@+id/textBlockShare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockCount1w"
+        tools:text="Block share: " />
+
+    <TextView
+        android:id="@+id/textBlockShareAll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShare"
+        tools:text="all: 0.090416987347208" />
+
+    <TextView
+        android:id="@+id/textBlockShare24h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShareAll"
+        tools:text="24h: 0.17532467532467533" />
+
+    <TextView
+        android:id="@+id/textBlockShare1w"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShare24h"
+        tools:text="1w: 0.18733509234828497" />
+
+    <TextView
+        android:id="@+id/textEstimatedHashrate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBlockShare1w"
+        tools:text="Estimated hashrate:" />
+
+    <TextView
+        android:id="@+id/textEstimatedHashrateCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrate"
+        tools:text="52123681581709400000" />
+
+    <TextView
+        android:id="@+id/textAddresses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x2"
+        android:layout_marginTop="@dimen/margin_base_x2"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrateCount"
+        tools:text="Addresses: " />
+
+    <TextView
+        android:id="@+id/textAddressesFirst"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAddresses"
+        tools:text="1Sjj2cPC3rTWcSTEYDeu2f3BavLosog4T" />
+
+    <TextView
+        android:id="@+id/textAddressesSecond"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_base_x4"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAddressesFirst"
+        tools:text="1jLVpwtNMfXWaHY4eiLDmGuBxokYLgv1X" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

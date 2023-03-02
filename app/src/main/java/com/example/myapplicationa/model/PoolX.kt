@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class PoolX(
     @Json(name = "avgMatchRate")
-    val avgMatchRate: Double,
+    val avgMatchRate: Double?,
     @Json(name = "blockCount")
     val blockCount: Int,
     @Json(name = "emptyBlocks")

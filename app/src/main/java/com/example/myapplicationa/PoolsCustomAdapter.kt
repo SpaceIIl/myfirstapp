@@ -1,41 +1,43 @@
 package com.example.myapplicationa
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
+import com.example.myapplicationa.databinding.ItemPoolBinding
 import com.example.myapplicationa.model.PoolX
 
 
-class PoolsCustomAdapter(private val dataSet: List<PoolX>) :
-    RecyclerView.Adapter<PoolsCustomAdapter.ViewHolder>() {
+class PoolsCustomAdapter (private val clickListener: OnPoolClicked):
+    ListAdapter<PoolX, PoolsCustomAdapter.ItemViewHolder>(UserDiffCallBack()) {
 
-    //Provide a reference to the type of views that you are using
-    //custom ViewHolder
-
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView
-
-        init {
-            // Define click listener for the ViewHolder's View
-            textView = view.findViewById(R.id.textView)
+    inner class ItemViewHolder(private val binding: ItemPoolBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(item: PoolX) {
+            binding.textPoolName.text = item.name
+            binding.root.setOnClickListener { clickListener.OnPoolClicked(item) }
         }
     }
 
-    // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.item_pool, viewGroup, false)
+    private class UserDiffCallBack : DiffUtil.ItemCallback<PoolX>() {
+        override fun areItemsTheSame(oldItem: PoolX, newItem: PoolX): Boolean =
+            oldItem.slug == newItem.slug
 
-        return ViewHolder(view)
+        override fun areContentsTheSame(oldItem: PoolX, newItem: PoolX): Boolean =
+            oldItem == newItem
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val view = ItemPoolBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = dataSet[position].toString()
+        return ItemViewHolder(view)
     }
 
-    override fun getItemCount() = dataSet.size
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        holder.onBind(getItem(position))
+    }
+
+    fun interface OnPoolClicked {
+        fun OnPoolClicked(pool: PoolX)
+    }
 }

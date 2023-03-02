@@ -1,4 +1,4 @@
-package com.example.myapplicationa
+package com.example.myapplicationa.pooldetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.myapplicationa.PoolDetailViewModel
+import com.example.myapplicationa.PoolScreenState
+import com.example.myapplicationa.R
 import com.example.myapplicationa.databinding.FragmentAntpoolBinding
 import com.example.myapplicationa.model.PoolWrapper
 
-class AntpoolFragment : Fragment() {
+class PoolDetailFragment : Fragment() {
     private var _binding: FragmentAntpoolBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<AntpoolViewModel>()
+    private val viewModel by viewModels<PoolDetailViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
