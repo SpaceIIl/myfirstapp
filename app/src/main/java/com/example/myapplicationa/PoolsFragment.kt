@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplicationa.databinding.FragmentPoolDetailBinding
 import com.example.myapplicationa.databinding.FragmentPoolsBinding
 
 class PoolsFragment : Fragment() {
@@ -31,7 +30,7 @@ class PoolsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val poolsAdapter = PoolsCustomAdapter {
+        val poolsAdapter = PoolsAdapter {
             findNavController().navigate(
                 PoolsFragmentDirections.actionFragmentPoolsToFragmentPoolDetail(
                     it.slug
@@ -47,7 +46,9 @@ class PoolsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             when (state) {
-                is PoolsScreenState.Error -> "ngmi"
+                is PoolsScreenState.Error -> {
+                    binding.textView.text = state.throwable.localizedMessage
+                }
                 is PoolsScreenState.Loading -> "Loading"
                 is PoolsScreenState.Success -> {
                     poolsAdapter.submitList(state.data)

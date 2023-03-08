@@ -7,5 +7,5 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Pools(
     @Json(name = "pools")
-    val pools: List<PoolX>
+    val pools: List<PoolDetailResponse>
 )

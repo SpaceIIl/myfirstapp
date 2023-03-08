@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/FragmentAntpool"
+        android:id="@+id/fragmentAntpool"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Pool"/>
     <item
-        android:id="@+id/FragmentPools"
+        android:id="@+id/fragmentPools"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Pools"/>
 </menu>

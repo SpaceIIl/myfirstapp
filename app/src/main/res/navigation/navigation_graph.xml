@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/FragmentPools">
+    app:startDestination="@id/fragmentPools">
 
     <fragment
-        android:id="@+id/FragmentAntpool"
+        android:id="@+id/fragmentAntpool"
         android:name="com.example.myapplicationa.AntpoolFragment"
         android:label="FragmentAntpool"
         tools:layout="@layout/fragment_antpool" />
     <fragment
-        android:id="@+id/FragmentPools"
+        android:id="@+id/fragmentPools"
         android:name="com.example.myapplicationa.PoolsFragment"
         android:label="Fragment2"
         tools:layout="@layout/fragment_pools" >
         <action
             android:id="@+id/action_FragmentPools_to_FragmentPoolDetail"
-            app:destination="@id/FragmentPoolDetail" />
+            app:destination="@id/fragmentPoolDetail" />
     </fragment>
     <fragment
-        android:id="@+id/FragmentPoolDetail"
+        android:id="@+id/fragmentPoolDetail"
         android:name="com.example.myapplicationa.pooldetail.PoolDetailFragment"
         android:label="FragmentPoolDetail"
         tools:layout="@layout/fragment_pool_detail" >

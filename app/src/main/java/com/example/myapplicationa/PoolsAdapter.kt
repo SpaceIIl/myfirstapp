@@ -6,24 +6,24 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
 import com.example.myapplicationa.databinding.ItemPoolBinding
-import com.example.myapplicationa.model.PoolX
+import com.example.myapplicationa.model.PoolDetailResponse
 
 
-class PoolsCustomAdapter (private val clickListener: OnPoolClicked):
-    ListAdapter<PoolX, PoolsCustomAdapter.ItemViewHolder>(UserDiffCallBack()) {
+class PoolsAdapter (private val clickListener: OnPoolClicked):
+    ListAdapter<PoolDetailResponse, PoolsAdapter.ItemViewHolder>(PoolDiffCallback()) {
 
     inner class ItemViewHolder(private val binding: ItemPoolBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: PoolX) {
+        fun onBind(item: PoolDetailResponse) {
             binding.textPoolName.text = item.name
-            binding.root.setOnClickListener { clickListener.OnPoolClicked(item) }
+            binding.root.setOnClickListener { clickListener.onPoolClicked(item) }
         }
     }
 
-    private class UserDiffCallBack : DiffUtil.ItemCallback<PoolX>() {
-        override fun areItemsTheSame(oldItem: PoolX, newItem: PoolX): Boolean =
+    private class PoolDiffCallback : DiffUtil.ItemCallback<PoolDetailResponse>() {
+        override fun areItemsTheSame(oldItem: PoolDetailResponse, newItem: PoolDetailResponse): Boolean =
             oldItem.slug == newItem.slug
 
-        override fun areContentsTheSame(oldItem: PoolX, newItem: PoolX): Boolean =
+        override fun areContentsTheSame(oldItem: PoolDetailResponse, newItem: PoolDetailResponse): Boolean =
             oldItem == newItem
     }
 
@@ -38,6 +38,6 @@ class PoolsCustomAdapter (private val clickListener: OnPoolClicked):
     }
 
     fun interface OnPoolClicked {
-        fun OnPoolClicked(pool: PoolX)
+        fun onPoolClicked(pool: PoolDetailResponse)
     }
 }
