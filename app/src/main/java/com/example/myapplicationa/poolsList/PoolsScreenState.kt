@@ -1,4 +1,4 @@
-package com.example.myapplicationa
+package com.example.myapplicationa.poolsList
 
 import com.example.myapplicationa.model.PoolDetailResponse
 

@@ -1,4 +1,4 @@
-package com.example.myapplicationa
+package com.example.myapplicationa.poolsList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

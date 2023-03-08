@@ -1,4 +1,4 @@
-package com.example.myapplicationa
+package com.example.myapplicationa.poolsList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

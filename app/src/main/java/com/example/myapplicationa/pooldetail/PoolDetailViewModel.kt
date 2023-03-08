@@ -1,4 +1,4 @@
-package com.example.myapplicationa
+package com.example.myapplicationa.pooldetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,8 +6,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.example.myapplicationa.MempoolDataSource.getPoolByName
 import com.example.myapplicationa.model.PoolWrapper
-import com.example.myapplicationa.pooldetail.PoolDetailFragment
-import com.example.myapplicationa.pooldetail.PoolDetailFragmentArgs
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.myapplicationa.PoolDetailViewModel
-import com.example.myapplicationa.PoolScreenState
 import com.example.myapplicationa.R
 import com.example.myapplicationa.databinding.FragmentAntpoolBinding
 import com.example.myapplicationa.model.PoolWrapper

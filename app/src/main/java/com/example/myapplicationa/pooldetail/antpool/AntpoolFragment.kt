@@ -1,4 +1,4 @@
-package com.example.myapplicationa
+package com.example.myapplicationa.pooldetail.antpool
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.myapplicationa.R
 import com.example.myapplicationa.databinding.FragmentAntpoolBinding
 import com.example.myapplicationa.model.PoolWrapper
+import com.example.myapplicationa.pooldetail.PoolScreenState
 
 class AntpoolFragment : Fragment() {
     private var _binding: FragmentAntpoolBinding? = null
