@@ -9,9 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplicationa.databinding.FragmentPoolsBinding
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
 
 class PoolsFragment : Fragment() {
     private var _binding: FragmentPoolsBinding? = null
@@ -55,10 +52,6 @@ class PoolsFragment : Fragment() {
                 is PoolsScreenState.Loading -> "Loading"
                 is PoolsScreenState.Success -> {
                     poolsAdapter.submitList(state.data)
-
-                    val pieEntries = state.data.map { PieEntry(it.avgMatchRate?.toFloat() ?: 0.0f,it.name, ) }
-
-                    val data = PieData(PieDataSet(pieEntries, "Pools"))
                 }
             }
         }

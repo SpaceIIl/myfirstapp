@@ -1,4 +1,4 @@
-package com.example.myapplicationa.poolsList
+package com.example.myapplicationa.homeScreen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,23 +6,23 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
 import com.example.myapplicationa.databinding.ItemPoolBinding
-import com.example.myapplicationa.model.PoolDetailResponse
+import com.example.myapplicationa.model.PoolsHashrateItem
 
-class PoolsAdapter (private val clickListener: OnPoolClicked):
-    ListAdapter<PoolDetailResponse, PoolsAdapter.ItemViewHolder>(PoolDiffCallback()) {
+class HomeScreenAdapter (private val clickListener: OnPoolClicked):
+    ListAdapter<PoolsHashrateItem, HomeScreenAdapter.ItemViewHolder>(PoolDiffCallback()) {
 
     inner class ItemViewHolder(private val binding: ItemPoolBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: PoolDetailResponse) {
-            binding.textPoolName.text = item.name
+        fun onBind(item: PoolsHashrateItem) {
+            binding.textPoolName.text = item.poolName
             binding.root.setOnClickListener { clickListener.onPoolClicked(item) }
         }
     }
 
-    private class PoolDiffCallback : DiffUtil.ItemCallback<PoolDetailResponse>() {
-        override fun areItemsTheSame(oldItem: PoolDetailResponse, newItem: PoolDetailResponse): Boolean =
-            oldItem.slug == newItem.slug
+    private class PoolDiffCallback : DiffUtil.ItemCallback<PoolsHashrateItem>() {
+        override fun areItemsTheSame(oldItem: PoolsHashrateItem, newItem: PoolsHashrateItem): Boolean =
+            oldItem.poolName == newItem.poolName
 
-        override fun areContentsTheSame(oldItem: PoolDetailResponse, newItem: PoolDetailResponse): Boolean =
+        override fun areContentsTheSame(oldItem: PoolsHashrateItem, newItem: PoolsHashrateItem): Boolean =
             oldItem == newItem
     }
 
@@ -37,6 +37,6 @@ class PoolsAdapter (private val clickListener: OnPoolClicked):
     }
 
     fun interface OnPoolClicked {
-        fun onPoolClicked(pool: PoolDetailResponse)
+        fun onPoolClicked(pool: PoolsHashrateItem)
     }
 }

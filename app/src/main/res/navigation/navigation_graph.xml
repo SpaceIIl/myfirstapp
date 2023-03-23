@@ -9,7 +9,11 @@
         android:id="@+id/fragmentHomeScreen"
         android:name="com.example.myapplicationa.homeScreen.HomeScreenFragment"
         android:label="FragmentAntpool"
-        tools:layout="@layout/fragment_home_screen" />
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_fragmentHomeScreen_to_fragmentPoolDetail"
+            app:destination="@id/fragmentPoolDetail" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentPools"
         android:name="com.example.myapplicationa.poolsList.PoolsFragment"
