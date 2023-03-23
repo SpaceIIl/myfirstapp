@@ -1,8 +1,8 @@
 package com.example.myapplicationa
 
-import com.example.myapplicationa.model.Pool
 import com.example.myapplicationa.model.PoolWrapper
 import com.example.myapplicationa.model.Pools
+import com.example.myapplicationa.model.PoolsHashrateItem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
@@ -27,5 +27,9 @@ object MempoolDataSource {
 
     fun getPools(): Call<Pools> {
         return poolService.getPools()
+    }
+
+    fun getHashrate(): Call<List<PoolsHashrateItem>> {
+        return poolService.getHashrate()
     }
 }

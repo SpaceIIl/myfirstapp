@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.myapplicationa.R
-import com.example.myapplicationa.databinding.FragmentAntpoolBinding
+import com.example.myapplicationa.databinding.FragmentPoolDetailBinding
 import com.example.myapplicationa.model.PoolWrapper
 
 class PoolDetailFragment : Fragment() {
-    private var _binding: FragmentAntpoolBinding? = null
+    private var _binding: FragmentPoolDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<PoolDetailViewModel>()
 
@@ -20,7 +20,7 @@ class PoolDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAntpoolBinding.inflate(inflater, container, false)
+        _binding = FragmentPoolDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 

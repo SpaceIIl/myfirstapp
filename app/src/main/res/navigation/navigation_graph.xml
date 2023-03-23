@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/fragmentPools">
+    app:startDestination="@id/fragmentHomeScreen">
 
     <fragment
-        android:id="@+id/fragmentAntpool"
-        android:name="com.example.myapplicationa.pooldetail.antpool.AntpoolFragment"
+        android:id="@+id/fragmentHomeScreen"
+        android:name="com.example.myapplicationa.homeScreen.HomeScreenFragment"
         android:label="FragmentAntpool"
-        tools:layout="@layout/fragment_antpool" />
+        tools:layout="@layout/fragment_home_screen" />
     <fragment
         android:id="@+id/fragmentPools"
         android:name="com.example.myapplicationa.poolsList.PoolsFragment"

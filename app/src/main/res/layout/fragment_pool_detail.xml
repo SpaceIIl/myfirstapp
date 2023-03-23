@@ -24,6 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="?attr/textAppearanceDisplayMedium"
         tools:text="AntPool" />
 
     <TextView
@@ -36,6 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPoolName"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="https://www.antpool.com/"/>
 
     <TextView
@@ -48,6 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPoolLink"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="Block count:" />
 
     <TextView
@@ -60,6 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCount"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="all: 70382" />
 
     <TextView
@@ -72,6 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCountAll"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="24h: 27" />
 
     <TextView
@@ -84,6 +89,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCount24h"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="1w: 213" />
 
     <TextView
@@ -96,6 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockCount1w"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="Block share: " />
 
     <TextView
@@ -108,6 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShare"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="all: 0.090416987347208" />
 
     <TextView
@@ -120,6 +128,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShareAll"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="24h: 0.17532467532467533" />
 
     <TextView
@@ -132,6 +141,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShare24h"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="1w: 0.18733509234828497" />
 
     <TextView
@@ -144,6 +154,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBlockShare1w"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="Estimated hashrate:" />
 
     <TextView
@@ -156,6 +167,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrate"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="52123681581709400000" />
 
     <TextView
@@ -168,6 +180,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEstimatedHashrateCount"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="Addresses: " />
 
     <TextView
@@ -180,6 +193,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAddresses"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="1Sjj2cPC3rTWcSTEYDeu2f3BavLosog4T" />
 
     <TextView
@@ -192,6 +206,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAddressesFirst"
+        android:textAppearance="?attr/textAppearanceDisplaySmall"
         tools:text="1jLVpwtNMfXWaHY4eiLDmGuBxokYLgv1X" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

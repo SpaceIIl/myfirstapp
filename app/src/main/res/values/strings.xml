@@ -6,4 +6,5 @@
     <string name="h">24h: %1$s</string>
     <string name="w">1w: %1$s</string>
     <string name="estimated_hashrate">Estimated hashrate:</string>
+    <string name="list_pools">List of Pools</string>
 </resources>
