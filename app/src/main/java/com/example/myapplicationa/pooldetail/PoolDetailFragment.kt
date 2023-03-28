@@ -1,6 +1,7 @@
 package com.example.myapplicationa.pooldetail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +36,23 @@ class PoolDetailFragment : Fragment() {
             when(state){
                 is PoolScreenState.Error -> {
                     binding.progressPool.visibility = View.GONE
-                    binding.textPoolName.text = "Failed to load data. Please check your internet connection and try again."
+
+                    binding.textPoolName.text = getString(R.string.error)
+
+                    Log.e("PoolScreen", "Error occurred:", state.throwable)
+
+                    binding.retryButton.visibility = View.VISIBLE
+                    binding.retryButton.setOnClickListener {
+                        viewModel.retryLoadingData()
+                    }
                 }
-                is PoolScreenState.Loading -> binding.progressPool.visibility = View.VISIBLE
+                is PoolScreenState.Loading -> {
+                    binding.progressPool.visibility = View.VISIBLE
+                    binding.retryButton.visibility = View.GONE
+                }
                 is PoolScreenState.Success -> {
                     binding.progressPool.visibility = View.GONE
+                    binding.retryButton.visibility = View.GONE
                     bindPoolWrapper(state.data)
                 }
             }

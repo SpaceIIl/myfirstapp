@@ -1,6 +1,7 @@
 package com.example.myapplicationa.poolsList
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplicationa.R
 import com.example.myapplicationa.databinding.FragmentPoolsBinding
+import com.example.myapplicationa.homeScreen.HomeScreenScreenState
 
 class PoolsFragment : Fragment() {
     private var _binding: FragmentPoolsBinding? = null
@@ -48,11 +51,26 @@ class PoolsFragment : Fragment() {
             when (state) {
                 is PoolsScreenState.Error -> {
                     binding.progressPool.visibility = View.GONE
-                    binding.textView.text = state.throwable.localizedMessage
+                    binding.recyclerMyData.visibility = View.GONE
+
+                    binding.textPoolName.text = getString(R.string.error)
+
+                    Log.e("PoolScreen", "Error occurred:", state.throwable)
+
+                    binding.retryButton.visibility = View.VISIBLE
+                    binding.retryButton.setOnClickListener {
+                        viewModel.retryLoadingData()
+                    }
                 }
-                is PoolsScreenState.Loading -> binding.progressPool.visibility = View.VISIBLE
+                is PoolsScreenState.Loading -> {
+                    binding.progressPool.visibility = View.VISIBLE
+                    binding.retryButton.visibility = View.GONE
+                }
                 is PoolsScreenState.Success -> {
                     binding.progressPool.visibility = View.GONE
+                    binding.recyclerMyData.visibility = View.VISIBLE
+                    binding.retryButton.visibility = View.GONE
+                    binding.textPoolName.text = getString(R.string.list_pools)
                     poolsAdapter.submitList(state.data)
                 }
             }

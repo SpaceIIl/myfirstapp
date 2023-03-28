@@ -9,4 +9,5 @@
     <string name="list_pools">List of Pools</string>
     <string name="list_other_pools">List of other Pools</string>
     <string name="error">An error occurred. Please try again.</string>
+    <string name="retry">Retry</string>
 </resources>

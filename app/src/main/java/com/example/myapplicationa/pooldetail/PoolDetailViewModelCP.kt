@@ -10,19 +10,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PoolDetailViewModel(
+class PoolDetailViewModelCP(
     savedStateHandle: SavedStateHandle
-) : ViewModel() {
+): ViewModel() {
 
     private val slug = PoolDetailFragmentArgs.fromSavedStateHandle(savedStateHandle).slug
     private val _screenState = MutableLiveData<PoolScreenState>()
     val screenState: LiveData<PoolScreenState> = _screenState
 
     init {
-        loadData()
-    }
-
-    private fun loadData() {
         _screenState.value = PoolScreenState.Loading
 
         getPoolByName(slug).enqueue(object : Callback<PoolWrapper> {
@@ -36,9 +32,5 @@ class PoolDetailViewModel(
                 _screenState.value = PoolScreenState.Error(t)
             }
         })
-    }
-
-    fun retryLoadingData() {
-        loadData()
     }
 }
