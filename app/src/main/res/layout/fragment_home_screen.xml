@@ -4,8 +4,27 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ProgressBar
+        android:id="@+id/progressPool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/retryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressPool"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Retry" />
+
     <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/chart1"
+        android:id="@+id/chartHashRates"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -13,16 +32,17 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textListPools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chart1"
+        app:layout_constraintTop_toBottomOf="@id/chartHashRates"
         android:layout_marginStart="@dimen/margin_base_x2"
         android:layout_marginTop="@dimen/margin_base_x2"
         android:layout_marginEnd="@dimen/margin_base_x2"
-        android:textAppearance="?attr/textAppearanceDisplayMedium" />
+        android:textAppearance="?attr/textAppearanceDisplayMedium"
+        android:text="@string/list_other_pools" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMyData"
@@ -31,7 +51,7 @@
         android:layout_marginTop="@dimen/margin_base"
         android:layout_marginBottom="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintTop_toBottomOf="@id/textListPools"
         app:layout_constraintBottom_toBottomOf="parent"
         android:clipToPadding="false" />
 

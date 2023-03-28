@@ -14,6 +14,10 @@ class HomeScreenViewModel: ViewModel() {
     val screenState: LiveData<HomeScreenScreenState> = _screenState
 
     init {
+        loadData()
+    }
+
+    private fun loadData() {
         _screenState.value = HomeScreenScreenState.Loading
 
         getHashrate().enqueue(object : Callback<List<PoolsHashrateItem>> {
@@ -27,5 +31,9 @@ class HomeScreenViewModel: ViewModel() {
                 _screenState.postValue(HomeScreenScreenState.Error(t))
             }
         })
+    }
+
+    fun retryLoadingData() {
+        loadData()
     }
 }

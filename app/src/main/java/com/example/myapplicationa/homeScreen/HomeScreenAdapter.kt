@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.myapplicationa.databinding.ItemPoolBinding
 import com.example.myapplicationa.model.PoolsHashrateItem
 
-class HomeScreenAdapter (private val clickListener: OnPoolClicked):
+class HomeScreenAdapter:
     ListAdapter<PoolsHashrateItem, HomeScreenAdapter.ItemViewHolder>(PoolDiffCallback()) {
 
     inner class ItemViewHolder(private val binding: ItemPoolBinding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: PoolsHashrateItem) {
             binding.textPoolName.text = item.poolName
-            binding.root.setOnClickListener { clickListener.onPoolClicked(item) }
         }
     }
 
@@ -34,9 +33,5 @@ class HomeScreenAdapter (private val clickListener: OnPoolClicked):
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.onBind(getItem(position))
-    }
-
-    fun interface OnPoolClicked {
-        fun onPoolClicked(pool: PoolsHashrateItem)
     }
 }

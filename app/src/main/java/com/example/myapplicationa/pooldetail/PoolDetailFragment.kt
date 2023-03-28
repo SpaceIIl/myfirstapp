@@ -35,7 +35,7 @@ class PoolDetailFragment : Fragment() {
             when(state){
                 is PoolScreenState.Error -> {
                     binding.progressPool.visibility = View.GONE
-                    binding.textPoolName.text = state.throwable.localizedMessage
+                    binding.textPoolName.text = "Failed to load data. Please check your internet connection and try again."
                 }
                 is PoolScreenState.Loading -> binding.progressPool.visibility = View.VISIBLE
                 is PoolScreenState.Success -> {

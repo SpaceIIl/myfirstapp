@@ -14,6 +14,10 @@ class PoolsViewModel: ViewModel() {
     val screenState: LiveData<PoolsScreenState> = _screenState
 
     init {
+        loadData()
+    }
+
+    private fun loadData() {
         _screenState.value = PoolsScreenState.Loading
 
         getPools().enqueue(object : Callback<Pools> {
@@ -27,5 +31,9 @@ class PoolsViewModel: ViewModel() {
                 _screenState.postValue(PoolsScreenState.Error(t))
             }
         })
+    }
+
+    fun retryLoadingData() {
+        loadData()
     }
 }

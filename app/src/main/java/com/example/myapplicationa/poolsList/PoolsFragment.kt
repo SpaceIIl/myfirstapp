@@ -47,10 +47,12 @@ class PoolsFragment : Fragment() {
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is PoolsScreenState.Error -> {
+                    binding.progressPool.visibility = View.GONE
                     binding.textView.text = state.throwable.localizedMessage
                 }
-                is PoolsScreenState.Loading -> "Loading"
+                is PoolsScreenState.Loading -> binding.progressPool.visibility = View.VISIBLE
                 is PoolsScreenState.Success -> {
+                    binding.progressPool.visibility = View.GONE
                     poolsAdapter.submitList(state.data)
                 }
             }
