@@ -55,27 +55,30 @@ class HomeScreenFragment : Fragment() {
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is HomeScreenScreenState.Error -> {
-                    binding.progressPool.visibility = View.GONE
-                    binding.recyclerMyData.visibility = View.GONE
-
-                    binding.textListPools.text = getString(R.string.error)
-
-                    Log.e("PoolScreen", "Error occurred:", state.throwable)
-
-                    binding.retryButton.visibility = View.VISIBLE
-                    binding.retryButton.setOnClickListener {
-                        viewModel.retryLoadingData()
+                    with(binding) {
+                        progressPool.visibility = View.GONE
+                        recyclerMyData.visibility = View.GONE
+                        textListPools.text = getString(R.string.error)
+                        retryButton.visibility = View.VISIBLE
+                        retryButton.setOnClickListener {
+                            viewModel.retryLoadingData()
+                        }
                     }
+                    Log.e("PoolScreen", "Error occurred:", state.throwable)
                 }
                 is HomeScreenScreenState.Loading -> {
-                    binding.progressPool.visibility = View.VISIBLE
-                    binding.retryButton.visibility = View.GONE
+                    with(binding) {
+                        progressPool.visibility = View.VISIBLE
+                        retryButton.visibility = View.GONE
+                    }
                 }
                 is HomeScreenScreenState.Success -> {
-                    binding.progressPool.visibility = View.GONE
-                    binding.recyclerMyData.visibility = View.VISIBLE
-                    binding.retryButton.visibility = View.GONE
-                    binding.textListPools.text = getString(R.string.list_other_pools)
+                    with(binding) {
+                        progressPool.visibility = View.GONE
+                        retryButton.visibility = View.GONE
+                        recyclerMyData.visibility = View.VISIBLE
+                        textListPools.text = getString(R.string.list_other_pools)
+                    }
 
                     val partitionByShare = state.data
                         .partition { it.share > 0.05f }

@@ -50,27 +50,30 @@ class PoolsFragment : Fragment() {
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is PoolsScreenState.Error -> {
-                    binding.progressPool.visibility = View.GONE
-                    binding.recyclerMyData.visibility = View.GONE
-
-                    binding.textPoolName.text = getString(R.string.error)
-
-                    Log.e("PoolScreen", "Error occurred:", state.throwable)
-
-                    binding.retryButton.visibility = View.VISIBLE
-                    binding.retryButton.setOnClickListener {
-                        viewModel.retryLoadingData()
+                    with(binding) {
+                        progressPool.visibility = View.GONE
+                        recyclerMyData.visibility = View.GONE
+                        textPoolName.text = getString(R.string.error)
+                        retryButton.visibility = View.VISIBLE
+                        retryButton.setOnClickListener {
+                            viewModel.retryLoadingData()
+                        }
                     }
+                    Log.e("PoolScreen", "Error occurred:", state.throwable)
                 }
                 is PoolsScreenState.Loading -> {
-                    binding.progressPool.visibility = View.VISIBLE
-                    binding.retryButton.visibility = View.GONE
+                    with(binding) {
+                        progressPool.visibility = View.VISIBLE
+                        retryButton.visibility = View.GONE
+                    }
                 }
                 is PoolsScreenState.Success -> {
-                    binding.progressPool.visibility = View.GONE
-                    binding.recyclerMyData.visibility = View.VISIBLE
-                    binding.retryButton.visibility = View.GONE
-                    binding.textPoolName.text = getString(R.string.list_pools)
+                    with(binding) {
+                        progressPool.visibility = View.GONE
+                        retryButton.visibility = View.GONE
+                        recyclerMyData.visibility = View.VISIBLE
+                        textPoolName.text = getString(R.string.list_pools)
+                    }
                     poolsAdapter.submitList(state.data)
                 }
             }
