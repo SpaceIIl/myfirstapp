@@ -32,4 +32,10 @@
             android:name="slug"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentTransactions"
+        android:name="com.example.myapplicationa.latestTransactions.TransactionsFragment"
+        android:label="FragmentTransactions"
+        tools:layout="@layout/fragment_transactions" >
+    </fragment>
 </navigation>

@@ -8,4 +8,8 @@
         android:id="@+id/fragmentPools"
         android:icon="@drawable/baseline_format_list_bulleted_24"
         android:title="Pools"/>
+    <item
+        android:id="@+id/fragmentTransactions"
+        android:icon="@drawable/baseline_format_list_bulleted_24"
+        android:title="Transactions"/>
 </menu>

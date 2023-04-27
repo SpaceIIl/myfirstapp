@@ -3,17 +3,22 @@ package com.example.myapplicationa
 import com.example.myapplicationa.model.PoolWrapper
 import com.example.myapplicationa.model.Pools
 import com.example.myapplicationa.model.PoolsHashrateItem
+import com.example.myapplicationa.model.TransactionsItem
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PoolService {
     @GET("v1/mining/pool/{slug}")
-    fun getPoolByName(
+    suspend fun getPoolByName(
         @Path("slug") slug: String,
-    ): Call<PoolWrapper>
+    ): Response<PoolWrapper>
     @GET("v1/mining/pools/1y")
-    fun getPools(): Call<Pools>
+    suspend fun getPools(): Response<Pools>
     @GET("v1/mining/hashrate/pools/1w")
-    fun getHashrate(): Call<List<PoolsHashrateItem>>
+    suspend fun getHashrate(): Response<List<PoolsHashrateItem>>
+
+    @GET("mempool/recent")
+    suspend fun getTransactions(): Response<List<TransactionsItem>>
 }

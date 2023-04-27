@@ -1,11 +1,11 @@
 package com.example.myapplicationa.pooldetail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.myapplicationa.MempoolDataSource
 import com.example.myapplicationa.MempoolDataSource.getPoolByName
 import com.example.myapplicationa.model.PoolWrapper
+import com.example.myapplicationa.poolsList.PoolsScreenState
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,17 +25,14 @@ class PoolDetailViewModel(
     private fun loadData() {
         _screenState.value = PoolScreenState.Loading
 
-        getPoolByName(slug).enqueue(object : Callback<PoolWrapper> {
-
-            override fun onResponse(call: Call<PoolWrapper>, response: Response<PoolWrapper>) {
-                _screenState.value = PoolScreenState.Success(response.body()!!)
+        viewModelScope.launch {
+            try {
+                val pool = getPoolByName(slug).body()!!
+                _screenState.postValue(PoolScreenState.Success(pool))
+            }catch (exception: Exception){
+                _screenState.postValue(PoolScreenState.Error(Throwable()))
             }
-
-            override fun onFailure(call: Call<PoolWrapper>, t: Throwable) {
-                t.printStackTrace()
-                _screenState.value = PoolScreenState.Error(t)
-            }
-        })
+        }
     }
 
     fun retryLoadingData() {

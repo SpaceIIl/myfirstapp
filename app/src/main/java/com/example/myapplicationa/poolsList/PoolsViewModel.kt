@@ -3,8 +3,10 @@ package com.example.myapplicationa.poolsList
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplicationa.MempoolDataSource.getPools
 import com.example.myapplicationa.model.Pools
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,17 +22,14 @@ class PoolsViewModel: ViewModel() {
     private fun loadData() {
         _screenState.value = PoolsScreenState.Loading
 
-        getPools().enqueue(object : Callback<Pools> {
-
-            override fun onResponse(call: Call<Pools>, response: Response<Pools>) {
-                _screenState.postValue(PoolsScreenState.Success(response.body()!!.pools))
+        viewModelScope.launch {
+            try {
+                val pools = getPools().body()!!.pools
+                _screenState.postValue(PoolsScreenState.Success(pools))
+            }catch (exception: Exception){
+                _screenState.postValue(PoolsScreenState.Error(Throwable()))
             }
-
-            override fun onFailure(call: Call<Pools>, t: Throwable) {
-                t.printStackTrace()
-                _screenState.postValue(PoolsScreenState.Error(t))
-            }
-        })
+        }
     }
 
     fun retryLoadingData() {

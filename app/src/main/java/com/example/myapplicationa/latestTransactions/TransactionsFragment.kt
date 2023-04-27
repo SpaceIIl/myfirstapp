@@ -1,4 +1,4 @@
-package com.example.myapplicationa.poolsList
+package com.example.myapplicationa.latestTransactions
 
 import android.os.Bundle
 import android.util.Log
@@ -7,51 +7,43 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationa.R
-import com.example.myapplicationa.databinding.FragmentPoolsBinding
-class PoolsFragment : Fragment() {
-    private var _binding: FragmentPoolsBinding? = null
+import com.example.myapplicationa.databinding.FragmentTransactionsBinding
+
+class TransactionsFragment : Fragment() {
+    private var _binding: FragmentTransactionsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<PoolsViewModel>()
+    private val viewModel by viewModels<TransactionsViewModel>()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPoolsBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val poolsAdapter = PoolsAdapter {
-            findNavController().navigate(
-                PoolsFragmentDirections.actionFragmentPoolsToFragmentPoolDetail(
-                    it.slug
-                )
-            )
-        }
+        super.onViewCreated(view, savedInstanceState)
+
+        val transactionsAdapter = TransactionsAdapter()
+
+
 
         binding.recyclerMyData.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = poolsAdapter
+            adapter = transactionsAdapter
         }
 
-        super.onViewCreated(view, savedInstanceState)
         viewModel.screenState.observe(viewLifecycleOwner) { state ->
             when (state) {
-                is PoolsScreenState.Error -> {
+                is TransactionsScreenState.Error -> {
                     with(binding) {
                         progressPool.visibility = View.GONE
                         recyclerMyData.visibility = View.GONE
-                        textPoolName.text = getString(R.string.error)
+                        textLatestTransactions.text = getString(R.string.error)
                         retryButton.visibility = View.VISIBLE
                         retryButton.setOnClickListener {
                             viewModel.retryLoadingData()
@@ -59,22 +51,35 @@ class PoolsFragment : Fragment() {
                     }
                     Log.e("PoolScreen", "Error occurred:", state.throwable)
                 }
-                is PoolsScreenState.Loading -> {
+                is TransactionsScreenState.Loading -> {
                     with(binding) {
                         progressPool.visibility = View.VISIBLE
                         retryButton.visibility = View.GONE
                     }
                 }
-                is PoolsScreenState.Success -> {
+                is TransactionsScreenState.Success -> {
                     with(binding) {
                         progressPool.visibility = View.GONE
                         retryButton.visibility = View.GONE
                         recyclerMyData.visibility = View.VISIBLE
-                        textPoolName.text = getString(R.string.list_pools)
+                        textLatestTransactions.text = getString(R.string.latest_transactions)
+                        swipeRefresh.isRefreshing = false
+                        swipeRefresh.setOnRefreshListener {
+                            viewModel.retryLoadingData()
+                        }
                     }
-                    poolsAdapter.submitList(state.data)
+
+                    transactionsAdapter.submitList(state.data)
+                    binding.recyclerMyData.post {
+                        binding.recyclerMyData.layoutManager?.scrollToPosition(0)
+                    }
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

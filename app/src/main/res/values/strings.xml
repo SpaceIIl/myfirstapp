@@ -10,4 +10,10 @@
     <string name="list_other_pools">List of other Pools</string>
     <string name="error">An error occurred. Please try again.</string>
     <string name="retry">Retry</string>
+    <string name="latest_transactions">Latest transactions</string>
+    <string name="refresh">Refresh</string>
+    <string name="fee">Fee: %1$s %2$s</string>
+    <string name="sent">Sent: %1$s %2$s</string>
+    <string name="btc"> BTC</string>
+    <string name="sats"> Sats</string>
 </resources>

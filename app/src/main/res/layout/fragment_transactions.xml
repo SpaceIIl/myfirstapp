@@ -23,37 +23,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/retry" />
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/chartHashRates"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="@dimen/margin_base"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <TextView
-        android:id="@+id/textListPools"
+        android:id="@+id/textLatestTransactions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chartHashRates"
-        android:layout_marginStart="@dimen/margin_base_x2"
-        android:layout_marginTop="@dimen/margin_base_x2"
-        android:layout_marginEnd="@dimen/margin_base_x2"
-        android:textAppearance="?attr/textAppearanceDisplayMedium"
-        android:text="@string/list_other_pools" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/margin_base_x2"
+        android:textAppearance="?attr/textAppearanceDisplayLarge"
+        android:text="@string/latest_transactions" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMyData"
-        android:layout_width="match_parent"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_base"
-        android:layout_marginBottom="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textListPools"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:clipToPadding="false" />
+        app:layout_constraintTop_toBottomOf="@id/textLatestTransactions"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMyData"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textLatestTransactions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clipToPadding="false" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

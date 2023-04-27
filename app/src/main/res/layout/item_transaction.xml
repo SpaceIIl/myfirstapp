@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/CardViewStyle"
+    android:layout_marginHorizontal="@dimen/margin_base_x2"
+    android:layout_marginVertical="@dimen/margin_base"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_base_x2">
+
+        <TextView
+            android:id="@+id/textTransaction"
+            android:layout_width="0dp"
+            android:textAppearance="?attr/textAppearanceDisplaySmall"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textFee"
+            android:textIsSelectable="true"
+            tools:text="AntPool" />
+
+        <TextView
+            android:id="@+id/textFee"
+            android:layout_width="0dp"
+            android:textAppearance="?attr/textAppearanceDisplaySmall"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_base"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintEnd_toStartOf="@id/textValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTransaction"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="AntPool" />
+
+        <TextView
+            android:id="@+id/textValue"
+            android:layout_width="0dp"
+            android:textAppearance="?attr/textAppearanceDisplaySmall"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_base"
+            android:gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textFee"
+            app:layout_constraintTop_toBottomOf="@id/textTransaction"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="AntPool" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

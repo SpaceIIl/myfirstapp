@@ -106,7 +106,7 @@ class HomeScreenFragment : Fragment() {
                     dataSet.valueTextSize = 12f
 
                     pieChart.data = data
-                    pieChart.animateY(1000)
+                    pieChart.animateY(500)
                     pieChart.invalidate()
 
                     homeScreenAdapter.submitList(partitionByShare.second)

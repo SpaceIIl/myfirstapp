@@ -3,9 +3,11 @@ package com.example.myapplicationa
 import com.example.myapplicationa.model.PoolWrapper
 import com.example.myapplicationa.model.Pools
 import com.example.myapplicationa.model.PoolsHashrateItem
+import com.example.myapplicationa.model.TransactionsItem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -21,15 +23,19 @@ object MempoolDataSource {
         retrofit.create(PoolService::class.java)
     }
 
-    fun getPoolByName(slug: String): Call<PoolWrapper> {
+    suspend fun getPoolByName(slug: String): Response<PoolWrapper> {
         return poolService.getPoolByName(slug)
     }
 
-    fun getPools(): Call<Pools> {
+    suspend fun getPools(): Response<Pools> {
         return poolService.getPools()
     }
 
-    fun getHashrate(): Call<List<PoolsHashrateItem>> {
+    suspend fun getHashrate(): Response<List<PoolsHashrateItem>> {
         return poolService.getHashrate()
+    }
+
+    suspend fun getTransactions(): Response<List<TransactionsItem>> {
+        return poolService.getTransactions()
     }
 }
